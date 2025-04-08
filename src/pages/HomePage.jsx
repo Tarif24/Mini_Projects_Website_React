@@ -10,7 +10,7 @@ const HomePage = () => {
                     <ProjectCard
                         projectImg={ChatIcon}
                         name="AI Chat Bot"
-                        githubLink="https://github.com/Tarif24/Elemental_Wars"
+                        githubLink="https://github.com/Tarif24/Mini_Projects_Website_React/tree/main/src/components/AI_Chat_Bot"
                         liveLink="/aichatbot"
                         tech="React, OpenAI API, Tailwind CSS"
                         startDate="2025-4-8"
