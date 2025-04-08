@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { IoInformationCircleOutline } from "react-icons/io5";
+import { Link } from "react-router-dom";
 
 const ProjectCard = ({
     projectImg,
@@ -20,7 +21,7 @@ const ProjectCard = ({
         window.open(liveLink);
     };
 
-    const buttonStyle = `sm:text-[1rem] text-[0.9rem] font-medium border-2 rounded-[4rem] border-[#555555] align-text-center p-4 sm:w-[8rem] flex-1 transition duration-300 ease-in-out hover:text-white hover:bg-[#555555] hover:cursor-pointer ${
+    const buttonStyle = `sm:text-[1rem] text-[0.9rem] text-center font-medium border-2 rounded-[4rem] border-[#555555] align-text-center p-4 sm:w-[8rem] flex-1 transition duration-300 ease-in-out hover:text-white hover:bg-[#555555] hover:cursor-pointer ${
         isAboutActive ? "" : "z-1"
     }`;
 
@@ -31,7 +32,10 @@ const ProjectCard = ({
     }`;
 
     return (
-        <div className="relative flex flex-1 flex-col gap-6 items-center p-6 bg-[#f7f7f7] border-2 rounded-4xl border-[#555555] lg:w-full md:w-[80%] justify-self-center pb-12 sm:pb-6">
+        <div
+            className="relative flex flex-1 flex-col gap-6 items-center p-6 bg-[#f7f7f7] border-2 rounded-4xl border-[#555555] h-fit min-w-[30rem] max-w-[35rem]
+        justify-self-center pb-12 sm:pb-6"
+        >
             <div className={aboutStyle}>
                 <h1 className="text-[2rem] sm:text-[3rem] font-bold mb-8">
                     About
@@ -48,7 +52,7 @@ const ProjectCard = ({
             </div>
 
             <img
-                className="sm:size-[90%] size-[100%] rounded-4xl border-1 border-[#555555]"
+                className="size-40 rounded-4xl border-2 p-4 border-[#555555]"
                 src={projectImg}
                 alt="Project 1 Image"
             />
@@ -57,9 +61,9 @@ const ProjectCard = ({
                 <button className={buttonStyle} onClick={onGitHubClicked}>
                     GitHub
                 </button>
-                <button className={buttonStyle} onClick={onLiveClicked}>
+                <Link to={liveLink} className={buttonStyle}>
                     Live Demo
-                </button>
+                </Link>
             </div>
             <div
                 className="absolute right-3 bottom-3 sm:right-5 sm:bottom-5 hover:cursor-pointer"
