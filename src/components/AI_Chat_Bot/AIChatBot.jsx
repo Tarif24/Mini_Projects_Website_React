@@ -2,40 +2,52 @@ import React, { useState } from "react";
 
 const AIChatBot = () => {
     const [inputText, setInputText] = useState("");
+    const [chatHistory, setChatHistory] = useState([]);
 
     const submitForm = (e) => {
         e.preventDefault();
 
-        console.log("Input Text:", inputText);
+        setChatHistory([...chatHistory, `YOU: ${inputText}`]);
+        setInputText("");
+
+        console.log(chatHistory);
     };
 
     return (
         <>
             <div className="flex justify-center items-center h-[90vh]">
                 <div className="flex justify-center items-center gap-8 bg-gray-200 w-full h-full p-8 border-24 border-white">
-                    <form
-                        className="flex justify-center items-center w-full h-full"
-                        onSubmit={submitForm}
-                    >
-                        <div className="flex justify-center items-end border-3 rounded-2xl h-[90%] w-[90%] bg-white">
+                    <div className="flex flex-col justify-center border-3 rounded-2xl h-[90%] w-[90%] bg-white">
+                        <div className="flex flex-col justify-end items-left h-full w-full mx-10 mb-4">
+                            {chatHistory.map((message, index) => (
+                                <h1 key={index} className="text-2xl mb-2">
+                                    {message}
+                                </h1>
+                            ))}
+                        </div>
+                        <form
+                            className="flex flex-1 justify-center items-end w-full h-full"
+                            onSubmit={submitForm}
+                        >
                             <div className="relative h-[3rem] w-full border-2 border-black rounded-[5rem] mb-4 mx-4">
                                 <input
                                     type="text"
                                     placeholder="What do you want to know..."
                                     className="relative h-full px-5 w-full focus:outline-none rounded-[5rem]"
+                                    value={inputText}
                                     onChange={(e) =>
                                         setInputText(e.target.value)
                                     }
                                 />
                                 <button
-                                    className="absolute right-0 top-0 h-full bg-blue-500 text-white rounded-[5rem] px-4 py-2"
+                                    className="absolute right-0 top-0 h-full bg-blue-500 text-white rounded-[5rem] px-4 py-2 hover:cursor-pointer hover:bg-blue-600 transition duration-300 ease-in-out"
                                     type="submit"
                                 >
                                     Send
                                 </button>
                             </div>
-                        </div>
-                    </form>
+                        </form>
+                    </div>
                 </div>
             </div>
         </>
