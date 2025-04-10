@@ -38,7 +38,7 @@ const AIChatBot = () => {
                 <div className="flex justify-center items-center gap-8 bg-gray-200 w-full h-full p-8 border-24 border-white">
                     <div className="flex flex-col justify-end border-3 rounded-2xl w-[90%] h-[90%] bg-white">
                         {/* Chat history container */}
-                        <div className="flex flex-grow flex-col overflow-y-auto px-10 mb-4 h-fit max-h-fit border-1 border-amber-400">
+                        <div className="flex flex-grow flex-col overflow-y-auto px-10 mb-4 h-fit max-h-fit">
                             {chatHistory.map(({ role, content }, index) => (
                                 <div
                                     className="flex text-left items-end w-full mb-2 gap-2 border-0"
