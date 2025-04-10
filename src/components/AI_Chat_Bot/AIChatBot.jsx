@@ -31,22 +31,26 @@ const AIChatBot = () => {
         <>
             <div className="flex justify-center items-center h-[90vh]">
                 <div className="flex justify-center items-center gap-8 bg-gray-200 w-full h-full p-8 border-24 border-white">
-                    <div className="flex flex-col justify-center border-3 rounded-2xl h-[90%] w-[90%] bg-white">
-                        <div className="flex flex-col justify-end items-left h-full w-full px-10 mb-4 overflow-y-scroll ">
+                    <div className="flex flex-col justify-end border-3 rounded-2xl w-[90%] h-[90%] bg-white">
+                        {/* Chat history container */}
+                        <div className="flex flex-grow flex-col overflow-y-auto px-10 mb-4 h-fit max-h-fit border-1 border-amber-400">
                             {chatHistory.map(({ role, content }, index) => (
-                                <h1
+                                <div
+                                    className="flex text-left items-end w-full mb-2 gap-2 border-0"
                                     key={index}
-                                    className="text-left text-2xl mb-2 w-[100%]"
                                 >
-                                    {`${role.toUpperCase()}: ${content}`}
-                                </h1>
+                                    <h1 className="text-2xl">
+                                        {`${role.toUpperCase()}: `}
+                                    </h1>
+                                    <h1 className="">{`${content}`}</h1>
+                                </div>
                             ))}
                         </div>
                         <form
-                            className="flex flex-1 justify-center items-end w-full h-full"
+                            className="flex justify-center items-end h-fit"
                             onSubmit={submitForm}
                         >
-                            <div className="relative h-[3rem] w-full border-2 border-black rounded-[5rem] mb-4 mx-4">
+                            <div className="relative h-[3rem] w-full border-2 border-black rounded-[5rem] m-4">
                                 <input
                                     type="text"
                                     placeholder="What do you want to know..."
