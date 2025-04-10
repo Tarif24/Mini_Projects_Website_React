@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import OpenAIApiCall from "./OpenAIApi";
 
 const AIChatBot = () => {
     const [inputText, setInputText] = useState("");
@@ -10,7 +11,7 @@ const AIChatBot = () => {
         setChatHistory([...chatHistory, `YOU: ${inputText}`]);
         setInputText("");
 
-        console.log(chatHistory);
+        OpenAIApiCall("Hello, how are you?");
     };
 
     return (
