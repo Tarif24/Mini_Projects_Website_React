@@ -8,10 +8,10 @@ const openai = new OpenAI({
     dangerouslyAllowBrowser: true,
 });
 
-const OpenAIApiCall = async (message) => {
+const OpenAIApiCall = async (chatHistory) => {
     const response = await openai.chat.completions.create({
         model: "gpt-4o-mini",
-        messages: [{ role: "user", content: message }],
+        messages: chatHistory,
         n: 1,
     });
 

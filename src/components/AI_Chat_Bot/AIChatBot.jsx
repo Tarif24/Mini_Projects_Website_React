@@ -10,13 +10,17 @@ const AIChatBot = () => {
 
         setChatHistory((prev) => [
             ...prev,
-            { type: "user", content: `${inputText}` },
+            { role: "user", content: `${inputText}` },
         ]);
-        const response = await OpenAIApiCall(chatHistory);
+
+        const response = await OpenAIApiCall([
+            ...chatHistory,
+            { role: "user", content: `${inputText}` },
+        ]);
 
         setChatHistory((prev) => [
             ...prev,
-            { type: response.role, content: response.content },
+            { role: response.role, content: response.content },
         ]);
         setInputText("");
     };
@@ -27,12 +31,12 @@ const AIChatBot = () => {
                 <div className="flex justify-center items-center gap-8 bg-gray-200 w-full h-full p-8 border-24 border-white">
                     <div className="flex flex-col justify-center border-3 rounded-2xl h-[90%] w-[90%] bg-white">
                         <div className="flex flex-col justify-end items-left h-full w-full px-10 mb-4 overflow-y-scroll ">
-                            {chatHistory.map(({ type, content }, index) => (
+                            {chatHistory.map(({ role, content }, index) => (
                                 <h1
                                     key={index}
                                     className="text-left text-2xl mb-2 w-[100%]"
                                 >
-                                    {`${type.toUpperCase()}: ${content}`}
+                                    {`${role.toUpperCase()}: ${content}`}
                                 </h1>
                             ))}
                         </div>
