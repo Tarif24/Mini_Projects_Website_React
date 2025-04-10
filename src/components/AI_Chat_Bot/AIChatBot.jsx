@@ -8,6 +8,8 @@ const AIChatBot = () => {
     const submitForm = async (e) => {
         e.preventDefault();
 
+        if (inputText.trim() === "") return;
+
         setChatHistory((prev) => [
             ...prev,
             { role: "user", content: `${inputText}` },
