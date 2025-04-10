@@ -15,8 +15,7 @@ const OpenAIApiCall = async (message) => {
         n: 1,
     });
 
-    console.log(response.choices[0].message.content);
-    console.log("hey");
+    return response.choices[0].message;
 };
 
 export default OpenAIApiCall;
