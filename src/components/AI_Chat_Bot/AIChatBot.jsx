@@ -1,9 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import OpenAIApiCall from "./OpenAIApi";
 
 const AIChatBot = () => {
     const [inputText, setInputText] = useState("");
     const [chatHistory, setChatHistory] = useState([]);
+    const chatEndRef = useRef(null);
 
     const submitForm = async (e) => {
         e.preventDefault();
@@ -27,6 +28,10 @@ const AIChatBot = () => {
         setInputText("");
     };
 
+    useEffect(() => {
+        chatEndRef.current?.scrollIntoView({ behavior: "smooth" });
+    }, [chatHistory]);
+
     return (
         <>
             <div className="flex justify-center items-center h-[90vh]">
@@ -45,6 +50,7 @@ const AIChatBot = () => {
                                     <h1 className="">{`${content}`}</h1>
                                 </div>
                             ))}
+                            <div ref={chatEndRef}></div>
                         </div>
                         <form
                             className="flex justify-center items-end h-fit"
