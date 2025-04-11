@@ -41,13 +41,13 @@ const AIChatBot = () => {
                         <div className="flex flex-grow flex-col overflow-y-auto px-10 mb-4 h-fit max-h-fit">
                             {chatHistory.map(({ role, content }, index) => (
                                 <div
-                                    className="flex text-left items-end w-full mb-2 gap-2 border-0"
+                                    className="flex text-left w-full mb-2 gap-2 border-0"
                                     key={index}
                                 >
                                     <h1 className="text-2xl">
                                         {`${role.toUpperCase()}: `}
                                     </h1>
-                                    <h1 className="">{`${content}`}</h1>
+                                    <h1 className="self-end mt-2">{`${content}`}</h1>
                                 </div>
                             ))}
                             <div ref={chatEndRef}></div>
