@@ -3,20 +3,20 @@
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-  <a href="https://github.com/Tarif24/Mini_Projects_Website">
-    <img src="assets/logo.svg" alt="Logo" width="240" height="240">
+  <a href="https://github.com/Tarif24/Mini_Projects_Website_React">
+    <img src="src/assets/logo.svg" alt="Logo" width="240" height="240">
   </a>
 
   <h3 align="center">Mini Projects</h3>
 
   <p align="center">
-    A site filled with all of my mini ideas
+    A site for my mini projects
     <br />
     <br />
     <br />
-    <a href="https://miniprojects.tarifmohammad.com/">View Demo</a>
+    <a href="https://mini-projects.tarifmohammad.com/">View Demo</a>
     &middot;
-    <a href="https://github.com/Tarif24/Mini_Projects_Website/issues/new">Report Bug</a>
+    <a href="https://github.com/Tarif24/Mini_Projects_Website_React/issues/new">Report Bug</a>
   </p>
 </div>
 
@@ -48,7 +48,7 @@
 
 [![Product Name Screen Shot][product-screenshot]][Live-Demo]
 
-This project is just an combination of many small projects. Any time I had an idea that could make a cool project but it dident have enough content to be its own full fledged site, I would put it in this site and this site was my first entry point to solo web dev without tutorial hell. This site is more of like a playground for me to test out diffrent ideas that can be features of other sites or just a place to test out cool new things I learned. Its filled with all of the basics and more compund calculator, to-do list, weather and a moving button. Each and everyone of this projects taught me alot about web dev.
+This project is just an combination of many small projects. Any time I had an idea that could make a cool project but it dident have enough content to be its own full fledged site, I would put it in this site and this was my way out of tutorial hell. This site is more of like a playground for me to test out diffrent ideas that can be features of other sites or just a place to test out cool new things I learned. Each and everyone of these projects taught me alot about web dev.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -56,9 +56,8 @@ This project is just an combination of many small projects. Any time I had an id
 
 These are all of the tools used for this project
 
--   HTML
--   CSS
--   JavaScript
+-   React
+-   Tailwind CSS
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -76,10 +75,14 @@ This is only if you would like to replicate or make a project similar to this
 
 1. Clone the repo
     ```sh
-    git clone https://github.com/Tarif24/Mini_Projects_Website.git
+    git clone https://github.com/Tarif24/Mini_Projects_Website_React.git
     ```
     or just copy the zip file from this repo
-2. After this you should be good to go just look over the files and personalize it to fit your needs
+2. Install NPM packages
+    ```sh
+    npm install
+    ```
+3. Then your all good to go and can start editing the files
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -89,9 +92,9 @@ This is only if you would like to replicate or make a project similar to this
 
 Tarif Mohammad - [@GitHub](https://github.com/Tarif24) - [@Linkedin](https://www.linkedin.com/in/tarif-mohammad/) - Tarif24@hotmail.com
 
-Project Link: [https://github.com/Tarif24/Mini_Projects_Website](https://github.com/Tarif24/Mini_Projects_Website)
+Project Link: [https://github.com/Tarif24/Mini_Projects_Website_React](https://github.com/Tarif24/Mini_Projects_Website_React)
 
-Live Link: [https://miniprojects.tarifmohammad.com/][Live-Demo]
+Live Link: [https://mini-projects.tarifmohammad.com/][Live-Demo]
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -102,14 +105,15 @@ Live Link: [https://miniprojects.tarifmohammad.com/][Live-Demo]
 This is a list of recources that i found helpful and would like to give credit too
 
 -   [HTML Documentation](https://developer.mozilla.org/en-US/docs/Web/HTML)
--   [CSS Documentation](https://developer.mozilla.org/en-US/docs/Web/CSS)
+-   [Tailwind CSS Documentation](https://tailwindcss.com/)
 -   [JavaScript Documentation](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
--   [Weather API Documentation](https://developer.accuweather.com/apis)
+-   [React Documentation](https://react.dev/)
+-   [OpenAI API Documentation](https://platform.openai.com/docs/overview)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
 
-[product-screenshot]: assets/readme-image.png
-[Live-Demo]: https://miniprojects.tarifmohammad.com/
+[product-screenshot]: src/assets/readme-image.png
+[Live-Demo]: https://mini-projects.tarifmohammad.com/

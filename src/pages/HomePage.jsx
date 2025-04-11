@@ -14,7 +14,7 @@ const HomePage = () => {
                         liveLink="/aichatbot"
                         tech="React, OpenAI API, Tailwind CSS"
                         startDate="2025-4-8"
-                        endDate="2024-4-15"
+                        endDate="2025-4-10"
                     />
                 </div>
             </div>
