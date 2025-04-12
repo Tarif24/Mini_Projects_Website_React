@@ -6,6 +6,7 @@ const AIChatBot = () => {
     const [chatHistory, setChatHistory] = useState([]);
     const chatEndRef = useRef(null);
 
+    // Submit form handler
     const submitForm = async (e) => {
         e.preventDefault();
 
@@ -28,6 +29,7 @@ const AIChatBot = () => {
         setInputText("");
     };
 
+    // Scroll to the bottom of the chat history when a new message is added
     useEffect(() => {
         chatEndRef.current?.scrollIntoView({ behavior: "smooth" });
     }, [chatHistory]);

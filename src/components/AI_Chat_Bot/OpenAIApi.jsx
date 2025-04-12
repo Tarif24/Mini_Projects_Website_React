@@ -1,8 +1,5 @@
 import OpenAI from "openai";
 
-// const configuration = new Configuration({
-//     apiKey: process.env.OPENAI_API_KEY,
-// });
 const openai = new OpenAI({
     apiKey: import.meta.env.VITE_OPENAI_API_KEY,
     dangerouslyAllowBrowser: true,

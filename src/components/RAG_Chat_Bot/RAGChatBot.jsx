@@ -6,6 +6,7 @@ const RAGChatBot = () => {
     const [chatHistory, setChatHistory] = useState([]);
     const chatEndRef = useRef(null);
 
+    // Submit form handler
     const submitForm = async (e) => {
         e.preventDefault();
 
@@ -28,6 +29,7 @@ const RAGChatBot = () => {
         setInputText("");
     };
 
+    // Scroll to the bottom of the chat history when a new message is added
     useEffect(() => {
         chatEndRef.current?.scrollIntoView({ behavior: "smooth" });
     }, [chatHistory]);
@@ -37,17 +39,17 @@ const RAGChatBot = () => {
             <div className="flex justify-center items-center h-[90vh]">
                 <div className="flex justify-center items-center gap-8 bg-gray-200 w-full h-full p-8 border-24 border-white">
                     <div className="flex flex-col justify-end border-3 rounded-2xl w-[90%] h-[90%] bg-white">
-                        {/* Chat history container */}
                         <div className="flex flex-grow flex-col overflow-y-auto px-10 mb-4 h-fit max-h-fit">
                             {chatHistory.map(({ role, content }, index) => (
                                 <div
-                                    className="flex text-left w-full mb-2 gap-2 border-0"
+                                    className={`w-fit mb-2 border-2 ${
+                                        role === "user"
+                                            ? "self-end"
+                                            : "self-start"
+                                    }`}
                                     key={index}
                                 >
-                                    <h1 className="text-2xl">
-                                        {`${role.toUpperCase()}: `}
-                                    </h1>
-                                    <h1 className="self-end mt-2">{`${content}`}</h1>
+                                    <h1 className="">{`${content}`}</h1>
                                 </div>
                             ))}
                             <div ref={chatEndRef}></div>
