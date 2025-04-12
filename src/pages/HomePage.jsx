@@ -16,6 +16,15 @@ const HomePage = () => {
                         startDate="2025-4-8"
                         endDate="2025-4-10"
                     />
+                    <ProjectCard
+                        projectImg={ChatIcon}
+                        name="RAG Chat Bot"
+                        githubLink="https://github.com/Tarif24/Mini_Projects_Website_React/tree/main/src/components/AI_Chat_Bot"
+                        liveLink="/ragchatbot"
+                        tech="React, OpenAI API, Tailwind CSS"
+                        startDate="2025-4-11"
+                        endDate="2025-4-12"
+                    />
                 </div>
             </div>
         </>

@@ -37,9 +37,7 @@ const ProjectCard = ({
         justify-self-center pb-12 sm:pb-6"
         >
             <div className={aboutStyle}>
-                <h1 className="text-[2rem] sm:text-[3rem] font-bold mb-8">
-                    About
-                </h1>
+                <h1 className="text-[2rem] sm:text-[3rem] font-bold">About</h1>
                 <h1 className="text-[1rem] sm:text-[1.5rem] text-center w-[70%]">
                     <b>Built With:</b> {tech}
                 </h1>
