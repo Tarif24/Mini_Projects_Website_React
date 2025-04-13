@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import OpenAIApiCall from "./OpenAIApi";
 import { PulseLoader } from "react-spinners";
+import { TypeAnimation } from "react-type-animation";
 
 const RAGChatBot = () => {
     const [inputText, setInputText] = useState("");
@@ -49,17 +50,28 @@ const RAGChatBot = () => {
             <div className="flex justify-center items-center h-[90vh]">
                 <div className="flex justify-center items-center gap-8 bg-gray-200 w-full h-full p-8 border-24 border-white">
                     <div className="flex flex-col justify-end border-3 rounded-2xl w-[90%] h-[90%] bg-white">
-                        <div className="flex flex-grow flex-col overflow-y-auto px-10 mb-4 h-fit max-h-fit">
+                        <div className="flex flex-grow flex-col overflow-y-auto mx-2 px-10 h-fit max-h-fit">
                             {chatHistory.map(({ role, content }, index) => (
                                 <div
-                                    className={`w-fit mb-2 border-2 ${
+                                    className={`w-fit max-w-[60%] mt-4 p-4 break-words ${
                                         role === "user"
-                                            ? "self-end"
-                                            : "self-start"
+                                            ? "self-end rounded-l-2xl rounded-tr-2xl bg-blue-500 text-white"
+                                            : "self-start rounded-r-2xl rounded-tl-2xl bg-gray-200 text-black"
                                     }`}
                                     key={index}
                                 >
-                                    <h1 className="">{`${content}`}</h1>
+                                    <h1 className="">
+                                        {role === "assistant" ? (
+                                            <TypeAnimation
+                                                sequence={[content]}
+                                                speed={120}
+                                                cursor={false}
+                                                className=""
+                                            />
+                                        ) : (
+                                            content
+                                        )}
+                                    </h1>
                                 </div>
                             ))}
                             <div ref={chatEndRef}></div>
