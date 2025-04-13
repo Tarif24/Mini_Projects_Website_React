@@ -1,9 +1,11 @@
 import React, { useState, useRef, useEffect } from "react";
 import OpenAIApiCall from "./OpenAIApi";
+import { PulseLoader } from "react-spinners";
 
 const RAGChatBot = () => {
     const [inputText, setInputText] = useState("");
     const [chatHistory, setChatHistory] = useState([]);
+    const [isTyping, setIsTyping] = useState(false);
     const chatEndRef = useRef(null);
 
     // Submit form handler
@@ -17,15 +19,23 @@ const RAGChatBot = () => {
             { role: "user", content: `${inputText}` },
         ]);
 
-        const response = await OpenAIApiCall([
-            ...chatHistory,
-            { role: "user", content: `${inputText}` },
-        ]);
+        try {
+            setIsTyping(true);
+            const response = await OpenAIApiCall([
+                ...chatHistory,
+                { role: "user", content: `${inputText}` },
+            ]);
 
-        setChatHistory((prev) => [
-            ...prev,
-            { role: response.role, content: response.content },
-        ]);
+            setChatHistory((prev) => [
+                ...prev,
+                { role: response.role, content: response.content },
+            ]);
+        } catch (error) {
+            console.error("Error fetching data", error);
+        } finally {
+            setIsTyping(false);
+        }
+
         setInputText("");
     };
 
@@ -53,6 +63,12 @@ const RAGChatBot = () => {
                                 </div>
                             ))}
                             <div ref={chatEndRef}></div>
+                            <PulseLoader
+                                color="#000000"
+                                loading={isTyping}
+                                size={12}
+                                speedMultiplier={1}
+                            />
                         </div>
                         <form
                             className="flex justify-center items-end h-fit"
