@@ -1,5 +1,4 @@
 import React, { useState, useRef, useEffect } from "react";
-import OpenAIApiCall from "./OpenAIApi";
 import { PulseLoader } from "react-spinners";
 import { TypeAnimation } from "react-type-animation";
 
@@ -15,6 +14,8 @@ const RAGChatBot = () => {
 
         if (inputText.trim() === "") return;
 
+        setInputText((prev) => prev.trim());
+
         setChatHistory((prev) => [
             ...prev,
             { role: "user", content: `${inputText}` },
@@ -22,14 +23,24 @@ const RAGChatBot = () => {
 
         try {
             setIsTyping(true);
-            const response = await OpenAIApiCall([
-                ...chatHistory,
-                { role: "user", content: `${inputText}` },
-            ]);
+            const responseJSON = await fetch(
+                "http://localhost:8000/api/query",
+                {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify({
+                        query: inputText,
+                    }),
+                }
+            );
+
+            const response = await responseJSON.json();
 
             setChatHistory((prev) => [
                 ...prev,
-                { role: response.role, content: response.content },
+                { role: "assistant", content: response.message },
             ]);
         } catch (error) {
             console.error("Error fetching data", error);
