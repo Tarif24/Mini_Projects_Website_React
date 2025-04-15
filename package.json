@@ -7,8 +7,7 @@
         "dev": "vite",
         "build": "vite build",
         "lint": "eslint .",
-        "preview": "vite preview",
-        "load": "node src/components/RAG_Chat_Bot/LoadDB.js"
+        "preview": "vite preview"
     },
     "dependencies": {
         "@datastax/astra-db-ts": "^1.5.0",
