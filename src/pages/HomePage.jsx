@@ -21,9 +21,9 @@ const HomePage = () => {
                         name="RAG Chat Bot"
                         githubLink="https://github.com/Tarif24/Mini_Projects_Website_React/tree/main/src/components/RAG_Chat_Bot"
                         liveLink="/ragchatbot"
-                        tech="React, OpenAI API, Tailwind CSS"
+                        tech="React, Tailwind CSS, OpenAI API, Node.js, Express.js, AstraDB"
                         startDate="2025-4-11"
-                        endDate="2025-4-12"
+                        endDate="2025-4-15"
                     />
                 </div>
             </div>
