@@ -7,6 +7,7 @@ const RAGChatBot = () => {
     const [chatHistory, setChatHistory] = useState([]);
     const [isTyping, setIsTyping] = useState(false);
     const chatEndRef = useRef(null);
+    const API_URL = import.meta.env.VITE_RAG_CHAT_API_URL;
 
     // Submit form handler
     const submitForm = async (e) => {
@@ -23,18 +24,15 @@ const RAGChatBot = () => {
 
         try {
             setIsTyping(true);
-            const responseJSON = await fetch(
-                "http://localhost:8000/api/query",
-                {
-                    method: "POST",
-                    headers: {
-                        "Content-Type": "application/json",
-                    },
-                    body: JSON.stringify({
-                        query: inputText,
-                    }),
-                }
-            );
+            const responseJSON = await fetch(`${API_URL}/api/query`, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                    query: inputText,
+                }),
+            });
 
             const response = await responseJSON.json();
 
